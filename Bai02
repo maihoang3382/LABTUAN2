@@ -1,0 +1,45 @@
+package LabTuan2;
+import java.util.Scanner;
+ class hinhchunhat {
+    private double dai;
+    private double rong;
+    public hinhchunhat(double dai, double rong) {
+        this.dai = dai;
+        this.rong = rong;
+    }
+    public double getDai() {
+        return dai;
+    }
+    public double getrong() {
+        return rong;
+    }
+    public void setDai(double dai) {
+        this.dai = dai;
+    }
+    public void setrong(double rong) {
+        this.rong = rong;
+    }
+    public double S() {
+        return dai * rong;
+    }
+    public double C() {
+        return (dai + rong)*2;
+    }
+    @Override
+    public String toString() {
+        return "hinh chu nhat: " +
+                " dai: " + dai +
+                " rong: " + rong +
+                " dien tich: " + S() +
+                " chu vi: " + C();
+    }
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("nhap dai: ");
+        double dai = scanner.nextDouble();
+        System.out.print("nahp rong: ");
+        double rong = scanner.nextDouble();
+        hinhchunhat hcn = new hinhchunhat(dai, rong);
+        System.out.println(hcn);
+    }
+}
