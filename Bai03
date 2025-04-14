@@ -1,47 +1,73 @@
 package LabTuan2;
 import java.util.Scanner;
 class SinhVien {
-    int maSV;
-    String hoTen;
-    float diemLT;
-    float diemTH;
-    SinhVien() {
-        maSV = 0;
-        hoTen = "";
-        diemLT = 0;
-        diemTH = 0;
+    private int maSV;
+    private String hoTen;
+    private float diemLT;
+    private float diemTH;
+    public SinhVien() {
+        this.maSV = 0;
+        this.hoTen = "";
+        this.diemLT = 0.0f;
+        this.diemTH = 0.0f;
     }
-    SinhVien(int mssv, String ten, float lt, float th) {
-        maSV = mssv;
-        hoTen = ten;
-        diemLT = lt;
-        diemTH = th;
+    public SinhVien(int maSV, String hoTen, float diemLT, float diemTH) {
+        this.maSV = maSV;
+        this.hoTen = hoTen;
+        this.diemLT = diemLT;
+        this.diemTH = diemTH;
     }
-    float diemTB() {
+    public int getMaSV() {
+        return maSV;
+    }
+    public void setMaSV(int maSV) {
+        this.maSV = maSV;
+    }
+    public String getHoTen() {
+        return hoTen;
+    }
+    public void setHoTen(String hoTen) {
+        this.hoTen = hoTen;
+    }
+    public float getDiemLT() {
+        return diemLT;
+    }
+    public void setDiemLT(float diemLT) {
+        this.diemLT = diemLT;
+    }
+    public float getDiemTH() {
+        return diemTH;
+    }
+    public void setDiemTH(float diemTH) {
+        this.diemTH = diemTH;
+    }
+    public float diemTB() {
         return (diemLT + diemTH) / 2;
     }
-    void inThongTin() {
-        System.out.println(maSV + "  " + hoTen + "  " + diemLT + "  " + diemTH + "  " + diemTB());
+    @Override
+    public String toString() {
+        return String.format("%-7d %-20s %7.2f %8.2f %8.2f", maSV, hoTen, diemLT, diemTH, diemTB());
     }
 }
  class Main {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        SinhVien sv1 = new SinhVien(123, "Mai Viet Hoang", 10, 10);
-        SinhVien sv2 = new SinhVien(321, "Hoang Viet Mai", 10, 10);
+        Scanner scanner = new Scanner(System.in);
+        SinhVien sv1 = new SinhVien(123, "Mai Viet Hoang", 10f, 10f);
+        SinhVien sv2 = new SinhVien(321, "Hoang Viet Mai", 10f, 10f);
         SinhVien sv3 = new SinhVien();
-        System.out.print("Nhap mssv sv3: ");
-        sv3.maSV = sc.nextInt();
-        sc.nextLine();
-        System.out.print("Nhap ho ten sv3: ");
-        sv3.hoTen = sc.nextLine();
-        System.out.print("Nhap diem ly thuyet sv3: ");
-        sv3.diemLT = sc.nextFloat();
-        System.out.print("Nhap diem thuc hanh sv3: ");
-        sv3.diemTH = sc.nextFloat();
-        System.out.println("masv hoten         diemLT diemTH diemTB");
-        sv1.inThongTin();
-        sv2.inThongTin();
-        sv3.inThongTin();
+        System.out.print("mssv sv3: ");
+        sv3.setMaSV(scanner.nextInt());
+        scanner.nextLine();
+        System.out.print("ho ten sv3: ");
+        sv3.setHoTen(scanner.nextLine());
+        System.out.print("diem ly thuet sv3: ");
+        sv3.setDiemLT(scanner.nextFloat());
+        System.out.print("diem thuc  hanh sv3: ");
+        sv3.setDiemTH(scanner.nextFloat());
+        System.out.printf("%-7s %-20s %7s %8s %8s\n", "masv", "hoten", "diemlt", "diemth", "diemtb");
+        System.out.println(sv1);
+        System.out.println(sv2);
+        System.out.println(sv3);
     }
 }
+
